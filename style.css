@@ -1,0 +1,70 @@
+#tablero {
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  background-color: #BE9655;
+}
+
+#tablero>div {
+  width: calc((120% - 16%) / 7); /* Se reduce el 16% para compensar el margen entre las cartas */
+  height: 192px;
+  display: inline-block;
+  margin: 1%;
+  margin-right: 3%;
+  cursor: pointer;
+  transition: transform ease .3s; /* Transición para animar el efecto de escala */
+}
+
+#tablero>div:hover {
+  transform: scale(1.2); /* Efecto de escala al pasar el cursor sobre las cartas */
+}
+
+.abrir img {
+  display: inline-block;
+}
+
+.tarjeta {
+  display: none;
+  width: 120%; /* Aumenta el ancho de la tarjeta al 120% */
+  margin-left: -10%; /* Ajusta el margen izquierdo para mantener el diseño */
+  margin-right: 5%; /* Aumenta el margen derecho al 5% para separar las cartas */
+}
+
+.tarjetas {
+  background-color: #6f7271;
+  width: calc((120% - 16%) / 7); /* Se reduce el 16% para compensar el margen entre las cartas */
+  height: 192px;
+  border: 1px solid;
+  position: relative;
+}
+
+.tarjetas img {
+  width: 100%; /* Ajustar el ancho al 100% para cubrir toda la tarjeta */
+  height: 100%; /* Ajustar la altura al 100% para cubrir toda la tarjeta */
+  object-fit: fill; /* Hacer que la imagen cubra completamente el contenedor */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform ease .3s; /* Transición para animar el efecto de escala */
+}
+
+/* Efecto de escala al hacer clic en la carta */
+.tarjetas:active img {
+  transform: scale(1.5); /* Hace que la imagen sea un 150% más grande al hacer clic */
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  #tablero>div {
+    width: calc((100% - 8%) / 4); /* Ajusta el número de cartas que quepan por fila y reduce el 8% para compensar el margen */
+    height: 192px; /* Mantenemos la misma altura */
+  }
+
+  .tarjetas {
+    width: calc((100% - 8%) / 4); /* Reduce el 8% para compensar el margen */
+    height: 192px;
+    margin-right: 3%;
+  }
+}
